@@ -31,10 +31,14 @@ function def_log(sh_i, sh_co) {
     if (sh_co) {
         console.log('--------------------------------------');
         console.log('                           ');
-        costs.map((d, i) => {
-            // console.log(`          ${i + 1}.${d.name}--${d.price}₼`);
-            console.log(`           ${i + 1}.${d.name} -- \x1b[31m${d.price}₼ \x1b[0m`);
-        })
+        if (!costs || costs.length == 0) {
+            console.log('           \x1b[31mThere is not any cost yet. \x1b[0m')
+        } else {
+            costs.map((d, i) => {
+                // console.log(`          ${i + 1}.${d.name}--${d.price}₼`);
+                console.log(`           ${i + 1}.${d.name} -- \x1b[31m${d.price}₼ \x1b[0m`);
+            })
+        }
         console.log('                           ');
     }
     console.log('--------------------------------------');
